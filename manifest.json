@@ -1,1 +1,39 @@
-[]
+[
+  {
+    "guid": "c124b60d-fb89-47bb-9c93-fc2649152a75",
+    "name": "Trailer Reel",
+    "description": "Maintains a local catalog of recent and upcoming movie trailers and plays same-genre trailers before movies.",
+    "overview": "Recent and upcoming same-genre movie trailers as Jellyfin prerolls.",
+    "owner": "DemonUnchained",
+    "category": "General",
+    "versions": [
+      {
+        "version": "0.2.1.4",
+        "changelog": "Jellyfin 12.1 compatible release.",
+        "targetAbi": "12.1.0.0",
+        "sourceUrl": "https://github.com/DemonUnchained/jellyfin-plugin-trailer-reel/releases/download/v0.2.1.4/trailer-reel_0.2.1.4.zip",
+        "checksum": "eacd16760d512d9780f9d1d58b451ab2",
+        "timestamp": "2026-09-18T15:51:56Z"
+      }
+    ]
+  },
+  {
+    "guid": "03459bac-6165-4b2d-b05f-40b953159b59",
+    "name": "Theme Music Finder",
+    "description": "Scans TV series, checks Plex by TVDB ID, falls back to ThemerrDB by TMDB ID, and saves validated theme.mp3 files without overwriting existing themes.",
+    "overview": "Finds missing TV series theme music and saves it as theme.mp3.",
+    "owner": "DemonUnchained",
+    "category": "Metadata",
+    "imageUrl": "https://raw.githubusercontent.com/DemonUnchained/jellyfin-plugin-theme-music-finder/main/logo.png",
+    "versions": [
+      {
+        "version": "1.1.0.0",
+        "changelog": "Jellyfin 12.1 release with ThemerrDB fallback when no Plex theme is found.",
+        "targetAbi": "12.1.0.0",
+        "sourceUrl": "https://github.com/DemonUnchained/jellyfin-plugin-theme-music-finder/releases/download/v1.1.0.0/ThemeMusicFinder_1.1.0.0.zip",
+        "checksum": "438186a1de63c5d10c01711e2fd38791",
+        "timestamp": "2026-09-18T15:49:08Z"
+      }
+    ]
+  }
+]
