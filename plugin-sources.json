@@ -1,0 +1,25 @@
+[
+  {
+    "guid": "c124b60d-fb89-47bb-9c93-fc2649152a75",
+    "name": "Trailer Reel",
+    "description": "Maintains a local catalog of recent and upcoming movie trailers and plays same-genre trailers before movies.",
+    "overview": "Recent and upcoming same-genre movie trailers as Jellyfin prerolls.",
+    "owner": "DemonUnchained",
+    "category": "General",
+    "repository": "DemonUnchained/jellyfin-plugin-trailer-reel",
+    "targetAbi": "12.1.0.0",
+    "assetTemplate": "trailer-reel_{version}.zip"
+  },
+  {
+    "guid": "03459bac-6165-4b2d-b05f-40b953159b59",
+    "name": "Theme Music Finder",
+    "description": "Scans TV series, checks Plex by TVDB ID, falls back to ThemerrDB by TMDB ID, and saves validated theme.mp3 files without overwriting existing themes.",
+    "overview": "Finds missing TV series theme music and saves it as theme.mp3.",
+    "owner": "DemonUnchained",
+    "category": "Metadata",
+    "imageUrl": "https://raw.githubusercontent.com/DemonUnchained/jellyfin-plugin-theme-music-finder/main/logo.png",
+    "repository": "DemonUnchained/jellyfin-plugin-theme-music-finder",
+    "targetAbi": "12.1.0.0",
+    "assetTemplate": "ThemeMusicFinder_{version}.zip"
+  }
+]
