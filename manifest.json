@@ -35,6 +35,14 @@
     "imageUrl": "https://raw.githubusercontent.com/DemonUnchained/jellyfin-plugin-theme-music-finder/main/logo.png",
     "versions": [
       {
+        "version": "1.2.1.0",
+        "changelog": "Fixes unreliable theme retrieval observed in the 1.2.0.0 scan.\r\n\r\n- Falls through to AnimeThemes and Plex when one ThemerrDB YouTube candidate is dead, restricted, streamless, timed out, or cannot be converted.\r\n- Keeps provider/API outages transient so they do not create false negative-cache records.\r\n- Bounds each YouTube candidate to 60 seconds and selects the smallest suitable audio representation.\r\n- Supports extracting audio from a small muxed stream when no audio-only stream is available.\r\n- Starts a fresh negative-cache generation so older misses are immediately checked against AnimeThemes.\r\n- Adds complete end-of-scan outcome totals.\r\n\r\nTargets Jellyfin 12.1. All 99 tests pass.",
+        "targetAbi": "12.1.0.0",
+        "sourceUrl": "https://github.com/DemonUnchained/jellyfin-plugin-theme-music-finder/releases/download/v1.2.1.0/ThemeMusicFinder_1.2.1.0.zip",
+        "checksum": "021e1d31adc7a45082e727a575872a71",
+        "timestamp": "2026-09-18T17:53:19Z"
+      },
+      {
         "version": "1.2.0.0",
         "changelog": "## What changed\r\n\r\n- Changed provider priority to ThemerrDB first, strict AnimeThemes second, and Plex last.\r\n- Added exact title/synonym and year validation for AnimeThemes OP1 audio.\r\n- Blocked Plex's known incorrect **Barber of Seville** mapping for *A Knight of the Seven Kingdoms*.\r\n- Added configurable EBU R128 normalization for new downloads, defaulting to -18 LUFS and -1.5 dBTP.\r\n- Added provider, catalogue ID, and source URL audit logging.\r\n- Existing **theme.mp3** files are never overwritten.\r\n\r\nTargets Jellyfin 12.1.",
         "targetAbi": "12.1.0.0",
