@@ -8,6 +8,14 @@
     "category": "General",
     "versions": [
       {
+        "version": "0.3.0.0",
+        "changelog": "Adds a dedicated anime-movie trailer pool for Jellyfin 12.1.\r\n\r\n- Uses the anime pool only when a movie from the configured Anime Movies library is played.\r\n- Keeps a separate default cap of 30 anime trailers alongside the regular 100-trailer pool.\r\n- Discovers anime candidates with TMDb Animation, Japanese original-language, and Japan-origin filters.\r\n- Continues excluding movies already hosted in Jellyfin.\r\n- Preserves per-user watched-trailer history so each profile avoids repeats.\r\n- Migrates existing catalogs into the regular pool without discarding watched state.",
+        "targetAbi": "12.1.0.0",
+        "sourceUrl": "https://github.com/DemonUnchained/jellyfin-plugin-trailer-reel/releases/download/v0.3.0.0/trailer-reel_0.3.0.0.zip",
+        "checksum": "c10dcf1be0708f0ea6d0035e6e118292",
+        "timestamp": "2026-09-18T16:47:19Z"
+      },
+      {
         "version": "0.2.1.4",
         "changelog": "Jellyfin 12.1 compatible release.",
         "targetAbi": "12.1.0.0",
