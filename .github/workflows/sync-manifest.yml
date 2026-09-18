@@ -1,0 +1,38 @@
+name: Sync Jellyfin manifest
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 * * * *"
+  push:
+    branches:
+      - main
+    paths:
+      - plugin-sources.json
+      - scripts/build_manifest.py
+      - .github/workflows/sync-manifest.yml
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Rebuild manifest from public releases
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 scripts/build_manifest.py
+      - name: Commit a changed manifest
+        shell: bash
+        run: |
+          if git diff --quiet -- manifest.json; then
+            echo "Manifest is already current."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add manifest.json
+          git commit -m "Update Jellyfin plugin manifest"
+          git push
