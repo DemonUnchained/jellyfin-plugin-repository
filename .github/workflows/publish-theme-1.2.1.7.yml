@@ -1,0 +1,55 @@
+name: Publish Theme Music Finder 1.2.1.7
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: main
+      - name: Update catalog source and remove temporary workflow
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          source_path = Path("plugin-sources.json")
+          source = source_path.read_text(encoding="utf-8")
+          old = "Finds missing TV series themes through ThemerrDB, strictly matched AnimeThemes openings, and Plex, then saves normalized theme.mp3 files without overwriting existing themes."
+          new = "Finds missing TV series themes through exact stable-ID YouTube overrides, ThemerrDB, strictly matched AnimeThemes, and Plex, then saves normalized theme.mp3 files without overwriting existing themes."
+          if source.count(old) != 1:
+              raise SystemExit("Expected catalog description not found exactly once")
+          source_path.write_text(source.replace(old, new), encoding="utf-8")
+          Path(".github/workflows/publish-theme-1.2.1.7.yml").unlink()
+          PY
+      - name: Rebuild manifest from the published release
+        run: python3 scripts/build_manifest.py
+      - name: Validate catalog entry
+        run: |
+          python3 -m json.tool plugin-sources.json >/dev/null
+          python3 -m json.tool manifest.json >/dev/null
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+
+          manifest = json.loads(Path("manifest.json").read_text(encoding="utf-8"))
+          plugin = next(item for item in manifest if item["name"] == "Theme Music Finder")
+          version = plugin["versions"][0]
+          assert version["version"] == "1.2.1.7", version
+          assert version["checksum"] == "e68c45779aaa7728b65bf4c4613879ab", version
+          assert version["sourceUrl"].endswith("/v1.2.1.7/ThemeMusicFinder_1.2.1.7.zip"), version
+          assert "source overrides" in version["changelog"], version
+          assert "exact stable-ID YouTube overrides" in plugin["description"], plugin
+          PY
+      - name: Commit and publish catalog
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Publish Theme Music Finder 1.2.1.7 catalog entry"
+          git push origin HEAD:main
