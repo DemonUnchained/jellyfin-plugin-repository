@@ -36,12 +36,20 @@
   {
     "guid": "03459bac-6165-4b2d-b05f-40b953159b59",
     "name": "Theme Music Finder",
-    "description": "Finds missing TV series themes through ThemerrDB, strictly matched AnimeThemes openings, and Plex, then saves normalized theme.mp3 files without overwriting existing themes.",
+    "description": "Finds missing TV series themes through exact stable-ID YouTube overrides, ThemerrDB, strictly matched AnimeThemes, and Plex, then saves normalized theme.mp3 files without overwriting existing themes.",
     "overview": "Finds missing TV series theme music and saves it as theme.mp3.",
     "owner": "DemonUnchained",
     "category": "Metadata",
     "imageUrl": "https://raw.githubusercontent.com/DemonUnchained/jellyfin-plugin-theme-music-finder/main/logo.png",
     "versions": [
+      {
+        "version": "1.2.1.7",
+        "changelog": "Adds exact stable-ID source overrides so remaining confirmed misses can use a hand-picked YouTube theme without enabling unsafe search.\r\n\r\n- Creates `ThemeMusicFinder.source-overrides.json` for exact `tvdb:ID` or `tmdb:ID` mappings to one validated HTTPS YouTube video.\r\n- Runs a local override before ThemerrDB, AnimeThemes, and Plex while reusing the bounded download, conversion, validation, normalization, and atomic-write pipeline.\r\n- Makes an added or changed override retry only that series; an unavailable curated video falls through to the public providers and remains retryable.\r\n- Revokes v1.2.1.6's unsafe *When They Cry* alias and migrates only its affected cache entry.\r\n- Preserves confirmed-miss reasons in attempt history and `ThemeMusicFinder.missing-themes.json`, including while a series is in retry backoff.\r\n\r\nAll 150 tests pass. The release ZIP has the validated flat Jellyfin 12.1 layout and both declared runtime assemblies.\r\n\r\nSHA-256: `4c416b929e47bd3ceb294498d2797172f5f2e654d64f847108c55f45707e142f`\r\n\r\n**Full Changelog**: https://github.com/DemonUnchained/jellyfin-plugin-theme-music-finder/compare/v1.2.1.6...v1.2.1.7",
+        "targetAbi": "12.1.0.0",
+        "sourceUrl": "https://github.com/DemonUnchained/jellyfin-plugin-theme-music-finder/releases/download/v1.2.1.7/ThemeMusicFinder_1.2.1.7.zip",
+        "checksum": "e68c45779aaa7728b65bf4c4613879ab",
+        "timestamp": "2026-09-19T23:22:50Z"
+      },
       {
         "version": "1.2.1.6",
         "changelog": "Adds safe AnimeThemes matching, stable-ID aliases for four verified misses, anime-library scoping, targeted cache invalidation, and provider timing metrics.\n\nSHA256: `79c049fe6e1fbe2e37ce374b860cdb605253b2374c5e741ca820192cecf60d9f`\n",
