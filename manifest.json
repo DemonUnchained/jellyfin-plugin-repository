@@ -43,6 +43,14 @@
     "imageUrl": "https://raw.githubusercontent.com/DemonUnchained/jellyfin-plugin-theme-music-finder/main/logo.png",
     "versions": [
       {
+        "version": "1.2.1.2",
+        "changelog": "Fixes Jellyfin 12.1 startup by declaring both the plugin DLL and the bundled YoutubeExplode dependency in the local manifest assembly whitelist. This prevents the plugin from being marked NotSupported after restart.\r\n\r\nNo provider, matching, normalization, or no-overwrite behavior changed.",
+        "targetAbi": "12.1.0.0",
+        "sourceUrl": "https://github.com/DemonUnchained/jellyfin-plugin-theme-music-finder/releases/download/v1.2.1.2/ThemeMusicFinder_1.2.1.2.zip",
+        "checksum": "600d655de28007fba5d326e7a9614fb8",
+        "timestamp": "2026-09-19T11:39:26Z"
+      },
+      {
         "version": "1.2.1.1",
         "changelog": "Packaging repair for Jellyfin 12.1 catalog installations.\r\n\r\n- Adds the required root-level meta.json assembly declaration.\r\n- Prevents the plugin from disappearing after a server restart.\r\n- Adds automated validation for the catalog ZIP layout.\r\n- Retains all provider, normalization, fallback, cache, and summary fixes from 1.2.1.0.\r\n\r\nAll 99 tests pass.",
         "targetAbi": "12.1.0.0",
