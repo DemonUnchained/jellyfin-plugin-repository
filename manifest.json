@@ -43,6 +43,14 @@
     "imageUrl": "https://raw.githubusercontent.com/DemonUnchained/jellyfin-plugin-theme-music-finder/main/logo.png",
     "versions": [
       {
+        "version": "1.2.1.5",
+        "changelog": "Fixes the AnimeThemes false misses identified in the Jellyfin 12.1 sweep.\r\n\r\n- Reads AnimeThemes' live `animesynonyms` field.\r\n- Checks Jellyfin's display title and original title, and removes a trailing `(YYYY)` only when it matches the production year.\r\n- Sends a year filter to AnimeThemes while retaining exact local title/year validation.\r\n- Prefers a non-NSFW, non-spoiler OP1 and falls back to a similarly safe ED1 only when no usable OP1 exists.\r\n- Starts attempt-history generation v4 so misses cached by 1.2.1.4 are checked immediately.\r\n- Splits skipped-series diagnostics by cause.\r\n- Writes `ThemeMusicFinder.missing-themes.json` with unresolved titles, years, IDs, paths, statuses, and reasons after each completed full sweep.\r\n- Preserves no-overwrite protection, sequential upstream throttling, atomic writes, normalization, and item refreshes.\r\n\r\nAll 118 tests pass. The installable ZIP has a flat Jellyfin 12.1-compatible layout and includes both declared runtime assemblies.\r\n\r\nSHA-256: `b662a57ba6054b5c01bf8aaf4c9686353ae558c0582fdee49c0fe4977dc39db1`",
+        "targetAbi": "12.1.0.0",
+        "sourceUrl": "https://github.com/DemonUnchained/jellyfin-plugin-theme-music-finder/releases/download/v1.2.1.5/ThemeMusicFinder_1.2.1.5.zip",
+        "checksum": "d2e485e31b931bf64a9a855ec3ed6fe3",
+        "timestamp": "2026-09-19T18:28:11Z"
+      },
+      {
         "version": "1.2.1.4",
         "changelog": "Fixes the confirmed theme download failures from the Jellyfin 12.1 sweep.\r\n\r\n- Gives yt-dlp a bounded three-minute window for slow YouTube media-CDN paths, with controlled socket and retry limits.\r\n- Runs YoutubeExplode as an independent fallback when yt-dlp still cannot download the curated candidate.\r\n- Keeps unusable or timed-out candidates retryable instead of storing a false seven-day negative-cache result.\r\n- Starts attempt-history generation v3, making A Knight of the Seven Kingdoms immediately eligible after upgrading.\r\n- Handles nullable AnimeThemes year and sequence fields without per-series exceptions.\r\n- Preserves yt-dlp's final diagnostic line in future failure logs.\r\n\r\nThe provider order remains ThemerrDB, strictly matched AnimeThemes, then Plex. Existing theme.mp3 files are never overwritten.\r\n\r\nAll 108 tests pass. The installable ZIP will be attached automatically by the tag build workflow.",
         "targetAbi": "12.1.0.0",
