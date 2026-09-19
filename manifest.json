@@ -43,6 +43,14 @@
     "imageUrl": "https://raw.githubusercontent.com/DemonUnchained/jellyfin-plugin-theme-music-finder/main/logo.png",
     "versions": [
       {
+        "version": "1.2.1.6",
+        "changelog": "Adds safe AnimeThemes matching, stable-ID aliases for four verified misses, anime-library scoping, targeted cache invalidation, and provider timing metrics.\n\nSHA256: `79c049fe6e1fbe2e37ce374b860cdb605253b2374c5e741ca820192cecf60d9f`\n",
+        "targetAbi": "12.1.0.0",
+        "sourceUrl": "https://github.com/DemonUnchained/jellyfin-plugin-theme-music-finder/releases/download/v1.2.1.6/ThemeMusicFinder_1.2.1.6.zip",
+        "checksum": "83751b93e53053f631ec52f3e1004221",
+        "timestamp": "2026-09-19T21:27:02Z"
+      },
+      {
         "version": "1.2.1.5",
         "changelog": "Fixes the AnimeThemes false misses identified in the Jellyfin 12.1 sweep.\r\n\r\n- Reads AnimeThemes' live `animesynonyms` field.\r\n- Checks Jellyfin's display title and original title, and removes a trailing `(YYYY)` only when it matches the production year.\r\n- Sends a year filter to AnimeThemes while retaining exact local title/year validation.\r\n- Prefers a non-NSFW, non-spoiler OP1 and falls back to a similarly safe ED1 only when no usable OP1 exists.\r\n- Starts attempt-history generation v4 so misses cached by 1.2.1.4 are checked immediately.\r\n- Splits skipped-series diagnostics by cause.\r\n- Writes `ThemeMusicFinder.missing-themes.json` with unresolved titles, years, IDs, paths, statuses, and reasons after each completed full sweep.\r\n- Preserves no-overwrite protection, sequential upstream throttling, atomic writes, normalization, and item refreshes.\r\n\r\nAll 118 tests pass. The installable ZIP has a flat Jellyfin 12.1-compatible layout and includes both declared runtime assemblies.\r\n\r\nSHA-256: `b662a57ba6054b5c01bf8aaf4c9686353ae558c0582fdee49c0fe4977dc39db1`",
         "targetAbi": "12.1.0.0",
