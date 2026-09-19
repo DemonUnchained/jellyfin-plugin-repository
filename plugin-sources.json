@@ -13,7 +13,7 @@
   {
     "guid": "03459bac-6165-4b2d-b05f-40b953159b59",
     "name": "Theme Music Finder",
-    "description": "Scans TV series, checks Plex by TVDB ID, falls back to ThemerrDB by TMDB ID, and saves validated theme.mp3 files without overwriting existing themes.",
+    "description": "Finds missing TV series themes through ThemerrDB, strictly matched AnimeThemes openings, and Plex, then saves normalized theme.mp3 files without overwriting existing themes.",
     "overview": "Finds missing TV series theme music and saves it as theme.mp3.",
     "owner": "DemonUnchained",
     "category": "Metadata",
