@@ -43,6 +43,14 @@
     "imageUrl": "https://raw.githubusercontent.com/DemonUnchained/jellyfin-plugin-theme-music-finder/main/logo.png",
     "versions": [
       {
+        "version": "1.2.1.4",
+        "changelog": "Fixes the confirmed theme download failures from the Jellyfin 12.1 sweep.\r\n\r\n- Gives yt-dlp a bounded three-minute window for slow YouTube media-CDN paths, with controlled socket and retry limits.\r\n- Runs YoutubeExplode as an independent fallback when yt-dlp still cannot download the curated candidate.\r\n- Keeps unusable or timed-out candidates retryable instead of storing a false seven-day negative-cache result.\r\n- Starts attempt-history generation v3, making A Knight of the Seven Kingdoms immediately eligible after upgrading.\r\n- Handles nullable AnimeThemes year and sequence fields without per-series exceptions.\r\n- Preserves yt-dlp's final diagnostic line in future failure logs.\r\n\r\nThe provider order remains ThemerrDB, strictly matched AnimeThemes, then Plex. Existing theme.mp3 files are never overwritten.\r\n\r\nAll 108 tests pass. The installable ZIP will be attached automatically by the tag build workflow.",
+        "targetAbi": "12.1.0.0",
+        "sourceUrl": "https://github.com/DemonUnchained/jellyfin-plugin-theme-music-finder/releases/download/v1.2.1.4/ThemeMusicFinder_1.2.1.4.zip",
+        "checksum": "23761e87eb49fbba1e7895e0d08a3b2d",
+        "timestamp": "2026-09-19T14:52:59Z"
+      },
+      {
         "version": "1.2.1.3",
         "changelog": "Fixes the failed theme scan observed on Jellyfin 12.1.\r\n\r\n- Fixes AnimeThemes API requests returning HTTP 403.\r\n- Continues to Plex after a temporary AnimeThemes failure while preserving retry-safe transient status when no provider succeeds.\r\n- Reuses the existing Trailer Reel yt-dlp installation for curated ThemerrDB YouTube audio, with YoutubeExplode retained as fallback.\r\n- Prevents one provider outage from producing hundreds of identical warnings or repeated requests.\r\n- Keeps the known incorrect Plex Barber of Seville mapping for A Knight of the Seven Kingdoms blocked.\r\n\r\nThe installable ZIP will be attached automatically by the tag build workflow.",
         "targetAbi": "12.1.0.0",
