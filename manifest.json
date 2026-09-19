@@ -43,6 +43,14 @@
     "imageUrl": "https://raw.githubusercontent.com/DemonUnchained/jellyfin-plugin-theme-music-finder/main/logo.png",
     "versions": [
       {
+        "version": "1.2.1.1",
+        "changelog": "Packaging repair for Jellyfin 12.1 catalog installations.\r\n\r\n- Adds the required root-level meta.json assembly declaration.\r\n- Prevents the plugin from disappearing after a server restart.\r\n- Adds automated validation for the catalog ZIP layout.\r\n- Retains all provider, normalization, fallback, cache, and summary fixes from 1.2.1.0.\r\n\r\nAll 99 tests pass.",
+        "targetAbi": "12.1.0.0",
+        "sourceUrl": "https://github.com/DemonUnchained/jellyfin-plugin-theme-music-finder/releases/download/v1.2.1.1/ThemeMusicFinder_1.2.1.1.zip",
+        "checksum": "b64fef0efdb57683bffa2bc4bfc891b7",
+        "timestamp": "2026-09-19T11:22:40Z"
+      },
+      {
         "version": "1.2.1.0",
         "changelog": "Fixes unreliable theme retrieval observed in the 1.2.0.0 scan.\r\n\r\n- Falls through to AnimeThemes and Plex when one ThemerrDB YouTube candidate is dead, restricted, streamless, timed out, or cannot be converted.\r\n- Keeps provider/API outages transient so they do not create false negative-cache records.\r\n- Bounds each YouTube candidate to 60 seconds and selects the smallest suitable audio representation.\r\n- Supports extracting audio from a small muxed stream when no audio-only stream is available.\r\n- Starts a fresh negative-cache generation so older misses are immediately checked against AnimeThemes.\r\n- Adds complete end-of-scan outcome totals.\r\n\r\nTargets Jellyfin 12.1. All 99 tests pass.",
         "targetAbi": "12.1.0.0",
