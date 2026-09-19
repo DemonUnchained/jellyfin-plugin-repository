@@ -47,7 +47,7 @@
         "changelog": "Fixes Jellyfin 12.1 startup by declaring both the plugin DLL and the bundled YoutubeExplode dependency in the local manifest assembly whitelist. This prevents the plugin from being marked NotSupported after restart.\r\n\r\nNo provider, matching, normalization, or no-overwrite behavior changed.",
         "targetAbi": "12.1.0.0",
         "sourceUrl": "https://github.com/DemonUnchained/jellyfin-plugin-theme-music-finder/releases/download/v1.2.1.2/ThemeMusicFinder_1.2.1.2.zip",
-        "checksum": "600d655de28007fba5d326e7a9614fb8",
+        "checksum": "128a3a8915ec41f2604006fc9af72124",
         "timestamp": "2026-09-19T11:39:26Z"
       },
       {
