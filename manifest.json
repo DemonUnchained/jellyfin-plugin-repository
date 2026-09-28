@@ -51,6 +51,14 @@
     "imageUrl": "https://raw.githubusercontent.com/DemonUnchained/jellyfin-plugin-theme-music-finder/main/logo.png",
     "versions": [
       {
+        "version": "1.2.1.9",
+        "changelog": "## Fix\r\n\r\n- Restores `YoutubeExplode.dll` to Jellyfin 12.1's complete plugin assembly whitelist. Version 1.2.1.8 omitted the dependency from `meta.json`, so Jellyfin disabled the plugin at startup even though the DLL was present.\r\n- Retains the FFmpeg normalized-audio conversion fix from 1.2.1.8, including distinct input and output paths.\r\n- Adds regression coverage that requires both plugin DLLs in the package manifest.\r\n\r\n## Verification\r\n\r\n- GitHub Actions: **151 tests passed**, 0 failed, 0 skipped.\r\n- Live Jellyfin validation loaded Theme Music Finder 1.2.1.8 and YoutubeExplode 6.6.2 after applying the corrected whitelist.\r\n- A live sweep saved the theme for **Crusade** from Plex: 1 written, with 0 transient, write, or unexpected failures.\r\n\r\nUpgrading from 1.2.1.8 is recommended.",
+        "targetAbi": "12.1.0.0",
+        "sourceUrl": "https://github.com/DemonUnchained/jellyfin-plugin-theme-music-finder/releases/download/v1.2.1.9/ThemeMusicFinder_1.2.1.9.zip",
+        "checksum": "dd7e34f9fec5103a37778c2971d6661d",
+        "timestamp": "2026-09-28T18:10:28Z"
+      },
+      {
         "version": "1.2.1.8",
         "changelog": "## Fixes\r\n\r\n- Fixes Jellyfin 12.1 startup discovery by declaring only `Jellyfin.Plugin.ThemeMusicFinder.dll` as the plugin assembly while retaining `YoutubeExplode.dll` as a private runtime dependency.\r\n- Fixes Plex MP3 normalization by using distinct FFmpeg input and output paths, allowing valid Plex themes to be normalized and saved as `theme.mp3`.\r\n- Preserves the existing no-overwrite rule, provider fallthrough, retry/backoff behavior, normalization, and missing-theme reporting.\r\n\r\nValidated with 150 passing tests and a successful Jellyfin 12.1 plugin load.",
         "targetAbi": "12.1.0.0",
