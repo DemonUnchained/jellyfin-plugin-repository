@@ -2,11 +2,19 @@
   {
     "guid": "c124b60d-fb89-47bb-9c93-fc2649152a75",
     "name": "Trailer Reel",
-    "description": "Maintains a local catalog of recent and upcoming movie trailers and plays same-genre trailers before movies.",
-    "overview": "Recent and upcoming same-genre movie trailers as Jellyfin prerolls.",
+    "description": "Maintains separate recent and upcoming regular-movie and anime-movie trailer pools and plays profile-matched trailers before movies.",
+    "overview": "Recent and upcoming genre-profile-matched movie trailers as Jellyfin prerolls.",
     "owner": "DemonUnchained",
     "category": "General",
     "versions": [
+      {
+        "version": "0.4.0.0",
+        "changelog": "Adds Jellyfin 12.2 compatibility and profile-aware trailer matching.\r\n\r\n- Targets Jellyfin ABI `12.2.0.0` and compiles against the released Jellyfin 12.2.0 packages.\r\n- Keeps the feature movie's first Jellyfin genre as a mandatory anchor.\r\n- Rejects candidates with incompatible Animation, Comedy, Documentary, Family, or Music shifts unless the feature has that genre.\r\n- Rejects genre profiles that are mostly unrelated or use the anchor only as a lone secondary overlap.\r\n- Ranks eligible trailers by whole-profile similarity instead of treating every anchor match equally.\r\n- Plays fewer than three trailers when there are not enough strong, indexed, unwatched matches.\r\n- Logs the feature profile, off-theme rejection count, selected trailer genres, and similarity scores.\r\n- Preserves the existing regular/anime pools, catalog, settings, hosted-movie exclusion, and per-user watched history.\r\n\r\nValidated with a clean .NET 10 Release build, all repository tests passing, ZIP integrity checks, and matching SHA-256 checksums.",
+        "targetAbi": "12.2.0.0",
+        "sourceUrl": "https://github.com/DemonUnchained/jellyfin-plugin-trailer-reel/releases/download/v0.4.0.0/trailer-reel_0.4.0.0.zip",
+        "checksum": "8b6effc57565ee821149fc0abfeb2d22",
+        "timestamp": "2026-10-06T10:53:56Z"
+      },
       {
         "version": "0.3.0.2",
         "changelog": "Makes preroll matching strict: every queued trailer must match the movie's first Jellyfin genre, preventing secondary genres from mixing unrelated trailers into the queue. Playback logs now report the anchor genre and each selected trailer's genres.",
