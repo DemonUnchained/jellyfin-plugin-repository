@@ -66,11 +66,12 @@ def build_versions(source: dict[str, str]) -> list[dict[str, str]]:
             continue
 
         download_url = asset["browser_download_url"]
+        target_abi = source.get("targetAbiOverrides", {}).get(version, source["targetAbi"])
         versions.append(
             {
                 "version": version,
                 "changelog": release.get("body") or release.get("name") or f"Release {version}",
-                "targetAbi": source["targetAbi"],
+                "targetAbi": target_abi,
                 "sourceUrl": download_url,
                 "checksum": checksum(download_url),
                 "timestamp": release.get("published_at") or release.get("created_at"),
