@@ -8,6 +8,14 @@
     "category": "General",
     "versions": [
       {
+        "version": "0.4.1.1",
+        "changelog": "Fixes Full HD trailer downloads and handling of restricted or unavailable uploads.\r\n\r\n- Accepts widescreen Full HD uploads such as 1920x960 and 1920x800, fixing the literal height=1080 selector.\r\n- Keeps video within a 1920x1080 frame and excludes 720p, 1440p and 4K when Full HD is required.\r\n- Requires an audio stream.\r\n- Tries up to three distinct eligible trailer uploads when a source is age-restricted or lacks a matching format, within the existing per-pool acquisition budget.\r\n- Summarizes expected source skips without exception stacks and retains extraction/runtime warning hints.\r\n- Preserves strict genre matching, regular/anime pool limits, saved settings and per-user watched history.\r\n\r\nTargets Jellyfin ABI 12.2.0.0. Validated by 96 .NET checks and 22 offline checks using the real yt-dlp selector; GitHub CI passed.\r\n\r\nUpdate the plugin, restart Jellyfin, then run Download/refresh Trailer Reel once. Existing yt-dlp and Deno paths/settings remain compatible.",
+        "targetAbi": "12.2.0.0",
+        "sourceUrl": "https://github.com/DemonUnchained/jellyfin-plugin-trailer-reel/releases/download/v0.4.1.1/trailer-reel_0.4.1.1.zip",
+        "checksum": "1856758780f4371e9eb7de19db56bc97",
+        "timestamp": "2026-10-19T15:21:43Z"
+      },
+      {
         "version": "0.4.1.0",
         "changelog": "Validates trailer stock against actual local movie genre profiles using the same strict matcher as playback.\r\n\r\n- Targets six compatible trailers per profile, adjusted to fit the regular/anime pool caps.\r\n- Searches deeper for underserved genres and safely replaces surplus stock only after a suitable replacement downloads.\r\n- Protects scarce genre coverage while preserving the regular 100/anime 30 limits and per-user watched history.\r\n- Reports compatible, present, and indexed trailer coverage.\r\n- Explains playback shortages, including when all compatible trailers have already been watched by that user.\r\n\r\nTargets Jellyfin ABI 12.2.0.0. Validated by 83 regression checks with zero build warnings/errors.\r\n\r\nAfter updating and restarting Jellyfin, run Download/refresh Trailer Reel once to validate and rebalance the existing pools.",
         "targetAbi": "12.2.0.0",
