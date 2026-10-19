@@ -8,6 +8,14 @@
     "category": "General",
     "versions": [
       {
+        "version": "0.4.1.0",
+        "changelog": "Validates trailer stock against actual local movie genre profiles using the same strict matcher as playback.\r\n\r\n- Targets six compatible trailers per profile, adjusted to fit the regular/anime pool caps.\r\n- Searches deeper for underserved genres and safely replaces surplus stock only after a suitable replacement downloads.\r\n- Protects scarce genre coverage while preserving the regular 100/anime 30 limits and per-user watched history.\r\n- Reports compatible, present, and indexed trailer coverage.\r\n- Explains playback shortages, including when all compatible trailers have already been watched by that user.\r\n\r\nTargets Jellyfin ABI 12.2.0.0. Validated by 83 regression checks with zero build warnings/errors.\r\n\r\nAfter updating and restarting Jellyfin, run Download/refresh Trailer Reel once to validate and rebalance the existing pools.",
+        "targetAbi": "12.2.0.0",
+        "sourceUrl": "https://github.com/DemonUnchained/jellyfin-plugin-trailer-reel/releases/download/v0.4.1.0/trailer-reel_0.4.1.0.zip",
+        "checksum": "650c13e2b923fb65be9d654e26003ea4",
+        "timestamp": "2026-10-19T13:17:45Z"
+      },
+      {
         "version": "0.4.0.0",
         "changelog": "Adds Jellyfin 12.2 compatibility and profile-aware trailer matching.\r\n\r\n- Targets Jellyfin ABI `12.2.0.0` and compiles against the released Jellyfin 12.2.0 packages.\r\n- Keeps the feature movie's first Jellyfin genre as a mandatory anchor.\r\n- Rejects candidates with incompatible Animation, Comedy, Documentary, Family, or Music shifts unless the feature has that genre.\r\n- Rejects genre profiles that are mostly unrelated or use the anchor only as a lone secondary overlap.\r\n- Ranks eligible trailers by whole-profile similarity instead of treating every anchor match equally.\r\n- Plays fewer than three trailers when there are not enough strong, indexed, unwatched matches.\r\n- Logs the feature profile, off-theme rejection count, selected trailer genres, and similarity scores.\r\n- Preserves the existing regular/anime pools, catalog, settings, hosted-movie exclusion, and per-user watched history.\r\n\r\nValidated with a clean .NET 10 Release build, all repository tests passing, ZIP integrity checks, and matching SHA-256 checksums.",
         "targetAbi": "12.2.0.0",
