@@ -68,20 +68,12 @@
   {
     "guid": "03459bac-6165-4b2d-b05f-40b953159b59",
     "name": "Theme Music Finder",
-    "description": "Finds missing TV themes using stable-ID sources, ThemerrDB, AnimeThemes, Plex, and optional confidence-scored YouTube/SoundCloud/Bilibili discovery. Includes a read-only full-library audit and preserves existing theme.mp3 files.",
-    "overview": "Finds TV theme music and audits automatic source matching before installation.",
+    "description": "Finds missing TV series themes through exact stable-ID YouTube overrides, ThemerrDB, strictly matched AnimeThemes, and Plex, then saves normalized theme.mp3 files without overwriting existing themes.",
+    "overview": "Finds missing TV series theme music and saves it as theme.mp3.",
     "owner": "DemonUnchained",
     "category": "Metadata",
     "imageUrl": "https://raw.githubusercontent.com/DemonUnchained/jellyfin-plugin-theme-music-finder/main/logo.png",
     "versions": [
-      {
-        "version": "1.2.2.1",
-        "changelog": "## Jellyfin 12.3 — development prerelease\n\n- Adds automatic source discovery across YouTube and optional SoundCloud/Bilibili searches, with candidate scoring, detailed metadata checks and safe rejection of ambiguous or incorrect matches.\n- Adds the **Audit automatic theme discovery (read only)** scheduled task. Scans the whole TV library, records candidate URLs, scores and rejection reasons in ThemeMusicFinder.discovery-audit.json; does not download media or change existing themes.\n- Audit progress is checkpointed automatically and can resume after interruption; no manual batches are needed.\n- Installing music from automatically discovered candidates remains **OFF by default**; existing trusted sources continue working.\n- Requires Jellyfin 12.3. Compiled and passed **195 automated tests**, installation and restart-persistence smoke tests against Jellyfin 12.3.\n\n**Important:** This is a prerelease for testing the read-only whole-library audit. Real-library candidate accuracy has not yet been validated. Keep automatic discovery writes disabled until after reviewing the audit report.",
-        "targetAbi": "12.3.0.0",
-        "sourceUrl": "https://github.com/DemonUnchained/jellyfin-plugin-theme-music-finder/releases/download/v1.2.2.1/ThemeMusicFinder_1.2.2.1.zip",
-        "checksum": "5faf6732f9faeb2627ed6d64c4449b41",
-        "timestamp": "2026-10-23T14:07:25Z"
-      },
       {
         "version": "1.2.1.9",
         "changelog": "## Fix\r\n\r\n- Restores `YoutubeExplode.dll` to Jellyfin 12.1's complete plugin assembly whitelist. Version 1.2.1.8 omitted the dependency from `meta.json`, so Jellyfin disabled the plugin at startup even though the DLL was present.\r\n- Retains the FFmpeg normalized-audio conversion fix from 1.2.1.8, including distinct input and output paths.\r\n- Adds regression coverage that requires both plugin DLLs in the package manifest.\r\n\r\n## Verification\r\n\r\n- GitHub Actions: **151 tests passed**, 0 failed, 0 skipped.\r\n- Live Jellyfin validation loaded Theme Music Finder 1.2.1.8 and YoutubeExplode 6.6.2 after applying the corrected whitelist.\r\n- A live sweep saved the theme for **Crusade** from Plex: 1 written, with 0 transient, write, or unexpected failures.\r\n\r\nUpgrading from 1.2.1.8 is recommended.",
