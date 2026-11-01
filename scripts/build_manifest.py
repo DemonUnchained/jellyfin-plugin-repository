@@ -49,10 +49,13 @@ def build_versions(source: dict[str, str]) -> list[dict[str, str]]:
     versions: list[dict[str, str]] = []
 
     for release in releases:
-        if release.get("draft") or release.get("prerelease"):
+        if release.get("draft"):
             continue
 
         version = str(release["tag_name"]).removeprefix("v")
+        # Catalog admission is explicit per version; other previews remain excluded.
+        if release.get("prerelease") and version not in source.get("allowedPrereleaseVersions", []):
+            continue
         try:
             version_key(version)
         except ValueError as error:

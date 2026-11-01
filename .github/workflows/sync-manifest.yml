@@ -20,6 +20,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
+      - name: Test catalog admission and compatibility
+        run: python3 -m unittest discover -s tests -v
       - name: Rebuild manifest from public releases
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

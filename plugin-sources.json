@@ -27,6 +27,12 @@
     "imageUrl": "https://raw.githubusercontent.com/DemonUnchained/jellyfin-plugin-theme-music-finder/main/logo.png",
     "repository": "DemonUnchained/jellyfin-plugin-theme-music-finder",
     "targetAbi": "12.1.0.0",
+    "targetAbiOverrides": {
+      "1.2.2.2": "12.4.0.0"
+    },
+    "allowedPrereleaseVersions": [
+      "1.2.2.2"
+    ],
     "assetTemplate": "ThemeMusicFinder_{version}.zip"
   }
 ]
