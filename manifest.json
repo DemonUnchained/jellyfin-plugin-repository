@@ -8,6 +8,14 @@
     "category": "General",
     "versions": [
       {
+        "version": "0.4.1.2",
+        "changelog": "Verifies binary compatibility with Jellyfin 12.4 and retains 12.3 checks, with minimum ABI 12.2.0.0. Saves catalog cleanup before deleting old media. Preserves unreadable catalogs and retries after repair; playback skips prerolls on read failure. Serializes intro selection and watched writes to prevent concurrent duplicate reservations. Preserves strict genre matching, separate pools, Full HD/audio policy, settings and indexed item IDs.",
+        "targetAbi": "12.2.0.0",
+        "sourceUrl": "https://github.com/DemonUnchained/jellyfin-plugin-trailer-reel/releases/download/v0.4.1.2/trailer-reel_0.4.1.2.zip",
+        "checksum": "dbf16b6d2a40902b14d386d60cf3b02f",
+        "timestamp": "2026-11-01T00:29:04Z"
+      },
+      {
         "version": "0.4.1.1",
         "changelog": "Fixes Full HD trailer downloads and handling of restricted or unavailable uploads.\r\n\r\n- Accepts widescreen Full HD uploads such as 1920x960 and 1920x800, fixing the literal height=1080 selector.\r\n- Keeps video within a 1920x1080 frame and excludes 720p, 1440p and 4K when Full HD is required.\r\n- Requires an audio stream.\r\n- Tries up to three distinct eligible trailer uploads when a source is age-restricted or lacks a matching format, within the existing per-pool acquisition budget.\r\n- Summarizes expected source skips without exception stacks and retains extraction/runtime warning hints.\r\n- Preserves strict genre matching, regular/anime pool limits, saved settings and per-user watched history.\r\n\r\nTargets Jellyfin ABI 12.2.0.0. Validated by 96 .NET checks and 22 offline checks using the real yt-dlp selector; GitHub CI passed.\r\n\r\nUpdate the plugin, restart Jellyfin, then run Download/refresh Trailer Reel once. Existing yt-dlp and Deno paths/settings remain compatible.",
         "targetAbi": "12.2.0.0",
